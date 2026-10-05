@@ -22,46 +22,24 @@ jobs:
         with:
           node-version: 22
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
       - name: Install dependencies
-        run: bun install --frozen-lockfile
+        run: npm ci
 
-      - name: Build project (TanStack Start)
-        run: bun run build
+      - name: Lint
+        run: npm run lint
 
-      - name: Generate SPA shell + .htaccess for Plesk
-        run: bun run prerender
+      - name: Build Sign frontend (Vite)
+        run: npm run build
 
       - name: Verify build output
         run: |
-          test -f dist/client/index.html || (echo "Missing dist/client/index.html" && exit 1)
-          test -f dist/client/.htaccess || (echo "Missing dist/client/.htaccess" && exit 1)
-          if grep -Eq '<body[^>]*>\s*</body>' dist/client/index.html; then
-            echo "dist/client/index.html has an empty body"
-            exit 1
-          fi
-          if ! grep -q 'Mikodawa Docs' dist/client/index.html; then
-            echo "dist/client/index.html does not contain the Mikodawa Docs metadata"
-            exit 1
-          fi
-          if ! grep -q 'Todo tu trabajo' dist/client/index.html; then
-            echo "dist/client/index.html does not contain the prerendered home content"
-            exit 1
-          fi
-          if ! grep -q 'product-grid' dist/client/index.html; then
-            echo "dist/client/index.html does not contain the product grid"
-            exit 1
-          fi
-          test -f dist/client/atlas/index.html || (echo "Missing prerendered Atlas route" && exit 1)
-          if ! grep -q 'Mikodawa Atlas' dist/client/atlas/index.html; then
-            echo "dist/client/atlas/index.html does not contain the Atlas documentation"
-            exit 1
-          fi
-          ls -lah dist/client | head -20
+          test -f dist/index.html
+          test -f dist/.htaccess
+          test -f dist/sign-icon.svg
+          grep -q 'MikoDawa Sign' dist/index.html
+          grep -q 'id="root"' dist/index.html
+          test -n "$(find dist/assets -maxdepth 1 -name '*.js' -print -quit)"
+          test -n "$(find dist/assets -maxdepth 1 -name '*.css' -print -quit)"
 
       - name: Deploy via FTP (with retries)
         uses: nick-fields/retry@v3
@@ -80,5 +58,5 @@ jobs:
               set ftp:passive-mode on;
               set mirror:parallel-transfer-count 1;
               open -u adminmikodawasign,'7k0?gGh07' -p 21 mikodawa.com;
-              mirror -R --no-perms --verbose --exclude-glob .git* --exclude-glob node_modules/ dist/client/ /;
+              mirror -R --no-perms --verbose --exclude-glob .git* --exclude-glob node_modules/ dist/ /;
             "
