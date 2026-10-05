@@ -32,10 +32,10 @@ import {
 
 function Brand() {
   return (
-    <a className="brand" href="#" aria-label="MikoDawa Sign, inicio">
+    <a className="brand" href="#" aria-label="Mikodawa Sign, inicio">
       <img src="/sign-icon.svg" alt="" />
       <span>
-        MikoDawa <b>Sign</b>
+        Mikodawa <b>Sign</b>
       </span>
     </a>
   );
@@ -78,7 +78,7 @@ function Phone({ done = false }: { done?: boolean }) {
       </div>
       <div className="phone-brand">
         <img src="/sign-icon.svg" alt="" />
-        MikoDawa Sign
+        Mikodawa Sign
       </div>
       <div className="phone-heading">
         <small>{done ? "TODO LISTO" : "TU PRÓXIMA FIRMA"}</small>
@@ -184,7 +184,7 @@ function Demo() {
               className={`flow-node ${step === 1 || step === 2 ? "active" : ""}`}
             >
               <Smartphone />
-              <small>MikoDawa Sign</small>
+              <small>Mikodawa Sign</small>
             </div>
             <span className="flow-connector" />
             <div className={`flow-node ${step === 3 ? "active" : ""}`}>
@@ -257,7 +257,7 @@ function Documentation() {
           <span>Una buena conexión.</span>
         </h2>
         <p>
-          REST, JSON y una cuenta gratuita en MikoDawa Central. Integra Sign en
+          REST, JSON y una cuenta gratuita en Mikodawa Central. Integra Sign en
           tu web, tu aplicación o tu próximo proyecto.
         </p>
         <a href={CENTRAL} className="button primary">
@@ -323,7 +323,7 @@ function Documentation() {
           <h3>Dos valores. Dos lugares.</h3>
           <p>
             Registra una aplicación en{" "}
-            <a href={CENTRAL}>Central → MikoDawa Sign</a>. Recibirás un ID
+            <a href={CENTRAL}>Central → Mikodawa Sign</a>. Recibirás un ID
             público <code>sign_app_…</code> y un secreto <code>sign_sk_…</code>,
             visible una sola vez. Envía el ID en <code>X-Sign-App</code> y el
             secreto como Bearer desde tu backend.
@@ -415,7 +415,7 @@ function Download() {
           está en tu bolsillo.
         </h2>
         <p>
-          MikoDawa Sign para Android e iOS. Descarga gratuita y acceso con tu
+          Mikodawa Sign para Android e iOS. Descarga gratuita y acceso con tu
           perfil, también si no utilizas la Suite.
         </p>
         <div className="store-links">
@@ -453,7 +453,7 @@ function Download() {
       <div className="download-art">
         <div className="orbit orbit-one" />
         <div className="orbit orbit-two" />
-        <img src="/sign-icon.svg" alt="MikoDawa Sign" />
+        <img src="/sign-icon.svg" alt="Mikodawa Sign" />
         <span className="floating-label">
           <Fingerprint size={18} /> Tu decisión. Tu móvil.
         </span>
@@ -513,7 +513,7 @@ export default function App() {
               <br />
               Registra tu jornada. Todo desde tu móvil,
               <br />
-              con <strong>MikoDawa Sign.</strong>
+              con <strong>Mikodawa Sign.</strong>
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#descargar">
@@ -568,10 +568,10 @@ export default function App() {
         <section className="ecosystem-strip">
           <span>Dentro y fuera de la Suite</span>
           <a href="https://vault.mikodawa.com">
-            <FileCheck2 /> MikoDawa Vault
+            <FileCheck2 /> Mikodawa Vault
           </a>
           <a href="https://forge.mikodawa.com">
-            <Sparkles /> MikoDawa Forge
+            <Sparkles /> Mikodawa Forge
           </a>
           <span className="your-app">
             <Code2 /> Y tu próxima aplicación <ArrowUpRight size={15} />
@@ -695,7 +695,7 @@ export default function App() {
             <p>
               Sign es una app de descarga gratuita que puede utilizar cualquier
               persona. Y cualquier desarrollador puede integrar firmas y
-              autorizaciones con una cuenta gratuita de MikoDawa Central.
+              autorizaciones con una cuenta gratuita de Mikodawa Central.
             </p>
             <div className="freedom-checks">
               <span>
@@ -761,7 +761,7 @@ export default function App() {
           {[
             [
               "¿Necesito una suscripción para integrar Sign?",
-              "No. Regístrate en MikoDawa Central y abre el apartado MikoDawa Sign. Puedes registrar aplicaciones y consultar su actividad sin suscribirte a Forge, Vault ni otro producto.",
+              "No. Regístrate en Mikodawa Central y abre el apartado Mikodawa Sign. Puedes registrar aplicaciones y consultar su actividad sin suscribirte a Forge, Vault ni otro producto.",
             ],
             [
               "¿Qué diferencia hay entre firmar y autorizar?",
@@ -808,7 +808,7 @@ export default function App() {
           <a href="https://mikodawa.com/politica-de-privacidad">Privacidad</a>
           <a href="https://mikodawa.com/aviso-legal">Aviso legal</a>
           <a href="https://mikodawa.com">
-            MikoDawa <ArrowUpRight size={13} />
+            Mikodawa <ArrowUpRight size={13} />
           </a>
         </nav>
       </footer>

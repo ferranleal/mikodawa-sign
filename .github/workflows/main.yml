@@ -36,7 +36,7 @@ jobs:
           test -f dist/index.html
           test -f dist/.htaccess
           test -f dist/sign-icon.svg
-          grep -q 'MikoDawa Sign' dist/index.html
+          grep -q 'Mikodawa Sign' dist/index.html
           grep -q 'id="root"' dist/index.html
           test -n "$(find dist/assets -maxdepth 1 -name '*.js' -print -quit)"
           test -n "$(find dist/assets -maxdepth 1 -name '*.css' -print -quit)"

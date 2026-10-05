@@ -1,4 +1,4 @@
-# MikoDawa Sign
+# Mikodawa Sign
 
 Web pública de Sign: producto, recorrido interactivo, documentación REST y acceso al espacio de desarrolladores de Central. React + TypeScript + Vite. Sin autenticación ni secretos de API en esta web.
 
