@@ -1,0 +1,32 @@
+/* Mikodawa notifications: shared by web, desktop and Capacitor. */
+:root { --notification-top: calc(var(--app-top, env(safe-area-inset-top, 0px)) + 88px); }
+[data-sonner-toaster] { z-index: 100000 !important; }
+[data-sonner-toast][data-styled="true"], .suite-toast, .toast[role="status"], .toast[role="alert"] {
+  background: #1749b5 !important; color: #fff !important; border: 1px solid #ffffff26 !important;
+  border-radius: 18px !important; padding: 18px 22px !important; font-size: 14px !important;
+  line-height: 1.5 !important; box-shadow: 0 16px 48px #10275933 !important;
+  overflow-wrap: anywhere;
+}
+[data-sonner-toast][data-type="error"], .suite-toast.destructive,
+.toast.danger[role], .toast[role="alert"], .toast[data-type="error"] {
+  background: #8b1e2d !important; color: #fff !important;
+}
+[data-sonner-toast] [data-description], [data-sonner-toast] [data-icon],
+.toast[role] svg { color: #fff !important; }
+[data-sonner-toast] [data-close-button] { color: #fff !important; background: #1749b5 !important; border-color: #ffffff60 !important; }
+[data-sonner-toast][data-type="error"] [data-close-button] { background: #8b1e2d !important; }
+.suite-toast-viewport {
+  position: fixed; top: var(--notification-top); left: 50%; transform: translateX(-50%);
+  bottom: auto; right: auto; z-index: 100000; display: flex; flex-direction: column;
+  gap: 12px; width: min(460px, calc(100vw - 32px)); max-height: calc(100dvh - var(--notification-top) - 24px);
+  padding: 0; list-style: none; overflow-y: auto;
+}
+.toast[role="status"], .toast[role="alert"] {
+  position: fixed; top: var(--notification-top) !important; bottom: auto !important;
+  left: 50% !important; right: auto !important; transform: translateX(-50%);
+  z-index: 100000; width: min(460px, calc(100vw - 32px)); max-height: calc(100dvh - var(--notification-top) - 24px); overflow-y: auto;
+}
+.toast[role] button { color: inherit; }
+.workspace-alert.notice, .notice.success { background: #1749b5; color: white; border-color: #ffffff26; padding: 18px 22px; border-radius: 16px; }
+.workspace-alert.error, .notice.error { background: #8b1e2d; color: white; border-color: #ffffff26; padding: 18px 22px; border-radius: 16px; }
+@media (prefers-reduced-motion: reduce) { .toast[role], .suite-toast { animation: none !important; } }
